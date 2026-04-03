@@ -13,43 +13,51 @@ const DEFAULT_CONFIG = {
       buttons: [
         {
           id: 'btn-1',
-          label: 'Safari',
-          image: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg',
-          action: 'open -a Safari',
+          label: 'Chrome',
+          image: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Chrome_icon_%28September_2014%29.svg',
+          action: 'open -a "Google Chrome"',
           page: 0,
           position: 0
         },
         {
           id: 'btn-2',
-          label: 'Chrome',
-          image: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Chrome_icon_%28September_2014%29.svg',
-          action: 'open -a "Google Chrome"',
+          label: 'Firefox',
+          image: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg',
+          action: 'open -a Firefox',
           page: 0,
           position: 1
         },
         {
           id: 'btn-3',
-          label: 'Terminal',
-          image: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Terminalicon2.png',
-          action: 'open -a Terminal',
+          label: 'Apagar Monitores',
+          image: 'https://cdn-icons-png.flaticon.com/512/1829/1829649.png',
+          action: 'pmset displaysleepnow',
           page: 0,
           position: 2
         },
         {
           id: 'btn-4',
-          label: 'VS Code',
-          image: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg',
-          action: 'open -a "Visual Studio Code"',
+          label: 'Reposo Mac',
+          image: 'https://cdn-icons-png.flaticon.com/512/2344/2344400.png',
+          action: 'osascript -e \'tell application "System Events" to sleep\'',
           page: 0,
           position: 3
         },
         {
           id: 'btn-5',
-          label: 'Sleep Mac',
-          image: 'https://cdn-icons-png.flaticon.com/512/1829/1829649.png',
-          action: 'osascript -e \'tell application "System Events" to sleep\'',
+          label: 'FileZilla',
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FileZilla_logo.svg/1200px-FileZilla_logo.svg.png',
+          action: 'open -a FileZilla',
           page: 0,
           position: 4
+        },
+        {
+          id: 'btn-6',
+          label: 'VS Code',
+          image: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg',
+          action: 'open -a "Visual Studio Code"',
+          page: 0,
+          position: 5
         }
       ]
     }
