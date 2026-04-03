@@ -93,7 +93,7 @@ export default function StreamDeck() {
           </button>
         </div>
         <iframe
-          src="http://192.168.68.212:3000"
+          src="http://192.168.68.212:3001"
           className="stats-iframe"
           title="Local Stats"
         />

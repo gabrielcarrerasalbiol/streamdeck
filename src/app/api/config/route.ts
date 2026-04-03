@@ -29,25 +29,25 @@ const DEFAULT_CONFIG = {
         },
         {
           id: 'btn-3',
-          label: 'Apagar Monitores',
-          image: 'https://cdn-icons-png.flaticon.com/512/1829/1829649.png',
-          action: 'pmset displaysleepnow',
+          label: 'Warp',
+          image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terminal/terminal-original.svg',
+          action: 'open -a Warp',
           page: 0,
           position: 2
         },
         {
           id: 'btn-4',
-          label: 'Reposo Mac',
-          image: 'https://cdn-icons-png.flaticon.com/512/2344/2344400.png',
-          action: 'osascript -e \'tell application "System Events" to sleep\'',
+          label: 'Claude',
+          image: 'https://cdn-icons-png.flaticon.com/512/6132/6132222.png',
+          action: 'open -a Claude',
           page: 0,
           position: 3
         },
         {
           id: 'btn-5',
-          label: 'FileZilla',
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FileZilla_logo.svg/1200px-FileZilla_logo.svg.png',
-          action: 'open -a FileZilla',
+          label: 'Perplexity',
+          image: 'https://www.perplexity.ai/favicon.ico',
+          action: 'open -a Perplexity',
           page: 0,
           position: 4
         },
@@ -58,6 +58,38 @@ const DEFAULT_CONFIG = {
           action: 'open -a "Visual Studio Code"',
           page: 0,
           position: 5
+        },
+        {
+          id: 'btn-7',
+          label: 'FileZilla',
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FileZilla_logo.svg/1200px-FileZilla_logo.svg.png',
+          action: 'open -a FileZilla',
+          page: 0,
+          position: 6
+        },
+        {
+          id: 'btn-8',
+          label: 'Ajustes Mac',
+          image: 'https://cdn-icons-png.flaticon.com/512/2099/2099058.png',
+          action: 'open -a "System Preferences"',
+          page: 0,
+          position: 7
+        },
+        {
+          id: 'btn-9',
+          label: 'Apagar Pantalla',
+          image: 'https://cdn-icons-png.flaticon.com/512/1829/1829649.png',
+          action: 'pmset displaysleepnow',
+          page: 0,
+          position: 8
+        },
+        {
+          id: 'btn-10',
+          label: 'Dormir Mac',
+          image: 'https://cdn-icons-png.flaticon.com/512/2344/2344400.png',
+          action: 'osascript -e \'tell application "System Events" to sleep\'',
+          page: 0,
+          position: 9
         }
       ]
     },
