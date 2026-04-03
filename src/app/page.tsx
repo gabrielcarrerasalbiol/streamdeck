@@ -73,8 +73,84 @@ export default function StreamDeck() {
     );
   }
 
+  // Página 2: Iframe de local-stats
+  if (currentPage === 1) {
+    return (
+      <div className="iframe-container">
+        <div className="iframe-header">
+          <button
+            className="nav-button"
+            onClick={() => setCurrentPage(0)}
+          >
+            ◀ Volver
+          </button>
+          <span className="page-title">📊 Stats & Widgets</span>
+          <button
+            className="settings-button"
+            onClick={() => router.push('/settings')}
+          >
+            ⚙️
+          </button>
+        </div>
+        <iframe
+          src="http://192.168.68.212:3000"
+          className="stats-iframe"
+          title="Local Stats"
+        />
+        <style jsx>{`
+          .iframe-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #000;
+          }
+          .iframe-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: linear-gradient(180deg, rgba(30,30,30,0.95) 0%, rgba(20,20,20,0.9) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+          }
+          .page-title {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+          }
+          .nav-button {
+            background: rgba(0,122,255,0.2);
+            border: 1px solid rgba(0,122,255,0.3);
+            color: #007aff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+          }
+          .nav-button:hover {
+            background: rgba(0,122,255,0.3);
+          }
+          .settings-button {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+          }
+          .stats-iframe {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background: #000;
+          }
+        `}</style>
+      </div>
+    );
+  }
+
+  // Página 1: Grid de botones
   const currentButtons = pages[currentPage]?.buttons || [];
-  const gridSize = 5; // 5 columnas
   const totalButtons = 10; // 2 filas x 5 columnas
 
   return (
