@@ -9,7 +9,7 @@ const DEFAULT_CONFIG = {
   pages: [
     {
       id: 1,
-      name: 'Página Principal',
+      name: 'Apps',
       buttons: [
         {
           id: 'btn-1',
@@ -58,6 +58,52 @@ const DEFAULT_CONFIG = {
           action: 'open -a "Visual Studio Code"',
           page: 0,
           position: 5
+        }
+      ]
+    },
+    {
+      id: 2,
+      name: 'Stats & Widgets',
+      buttons: [
+        {
+          id: 'btn-stats',
+          label: '📊 Local Stats',
+          image: 'https://cdn-icons-png.flaticon.com/512/2785/2785.png',
+          action: 'open http://192.168.68.212:3000',
+          page: 1,
+          position: 0
+        },
+        {
+          id: 'btn-immich',
+          label: '📷 Immich',
+          image: 'https://cdn-icons-png.flaticon.com/512/1041/1041897.png',
+          action: 'open http://192.168.68.62:2283',
+          page: 1,
+          position: 1
+        },
+        {
+          id: 'btn-pihole',
+          label: '🛡️ PiHole',
+          image: 'https://cdn-icons-png.flaticon.com/512/2621/2621.png',
+          action: 'open http://192.168.1.210/admin',
+          page: 1,
+          position: 2
+        },
+        {
+          id: 'btn-terminal',
+          label: '💻 Terminal',
+          image: 'https://cdn-icons-png.flaticon.com/512/7162/7162249.png',
+          action: 'open -a Terminal',
+          page: 1,
+          position: 3
+        },
+        {
+          id: 'btn-finder',
+          label: '📁 Finder',
+          image: 'https://cdn-icons-png.flaticon.com/512/2621/2621.png',
+          action: 'open -a Finder',
+          page: 1,
+          position: 4
         }
       ]
     }
