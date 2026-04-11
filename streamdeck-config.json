@@ -8,7 +8,7 @@
           "id": "btn-1",
           "label": "Chrome",
           "image": "/icons/chrome.png",
-          "action": "open -a \"Google Chrome\"",
+          "action": "open -a \"Google Chrome Beta\"",
           "page": 0,
           "position": 0
         },
@@ -53,10 +53,10 @@
           "position": 5
         },
         {
-          "id": "btn-7",
-          "label": "Screenshot",
-          "image": "/icons/screenshot.png",
-          "action": "open -a ScreenshotHelper",
+          "id": "btn-fanoff",
+          "label": "Fan Off",
+          "image": "/icons/fanoff.png",
+          "action": "/opt/homebrew/bin/fanoff",
           "page": 0,
           "position": 6
         },
@@ -69,10 +69,10 @@
           "position": 7
         },
         {
-          "id": "btn-fanoff",
-          "label": "Fan Off",
-          "image": "/icons/fanoff.png",
-          "action": "/opt/homebrew/bin/fanoff",
+          "id": "btn-ugreen-nas",
+          "label": "UGREEN NAS",
+          "image": "/icons/nas.png",
+          "action": "open -a \"UGREEN NAS\"",
           "page": 0,
           "position": 8
         },
@@ -80,13 +80,13 @@
           "id": "btn-screenrec",
           "label": "Screen Record",
           "image": "/icons/screenrec.png",
-          "action": "/usr/sbin/screencapture -v /tmp/recording_$(date +%s).mov",
+          "action": "/opt/homebrew/bin/screenrecord",
           "page": 0,
           "position": 9
         },
         {
           "id": "btn-cputemp",
-          "label": "CPU Temp",
+          "label": "iStat Menus",
           "action": "/opt/homebrew/bin/cputemp",
           "page": 0,
           "position": 10,
@@ -103,7 +103,7 @@
         {
           "id": "btn-tailscale",
           "label": "Docker",
-          "action": "open -a Docker",
+          "action": "/opt/homebrew/bin/opendocker",
           "page": 0,
           "position": 12,
           "image": "/icons/docker.png"
