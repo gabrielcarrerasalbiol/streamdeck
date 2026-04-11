@@ -77,21 +77,12 @@ export default function StreamDeck() {
   if (currentPage === 1) {
     return (
       <div className="iframe-container">
-        <div className="iframe-header">
-          <button
-            className="nav-button"
-            onClick={() => setCurrentPage(0)}
-          >
-            ◀ Volver
-          </button>
-          <span className="page-title">📊 Stats & Widgets</span>
-          <button
-            className="settings-button"
-            onClick={() => router.push('/settings')}
-          >
-            ⚙️
-          </button>
-        </div>
+        <button
+          className="back-float-btn"
+          onClick={() => setCurrentPage(0)}
+        >
+          ◀
+        </button>
         <iframe
           src="http://192.168.68.212:3001"
           className="stats-iframe"
@@ -103,75 +94,48 @@ export default function StreamDeck() {
             display: flex;
             flex-direction: column;
             background: #000;
+            position: relative;
           }
-          .iframe-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 16px;
-            background: linear-gradient(180deg, rgba(30,30,30,0.95) 0%, rgba(20,20,20,0.9) 100%);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-          }
-          .page-title {
-            color: #fff;
-            font-size: 16px;
-            font-weight: 600;
-          }
-          .nav-button {
-            background: rgba(0,122,255,0.2);
-            border: 1px solid rgba(0,122,255,0.3);
-            color: #007aff;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-          }
-          .nav-button:hover {
-            background: rgba(0,122,255,0.3);
-          }
-          .settings-button {
-            background: rgba(255,255,255,0.1);
+          .back-float-btn {
+            position: absolute;
+            top: 4px;
+            left: 250px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(255,255,255,0.2);
-            padding: 8px 12px;
+            color: #fff;
+            padding: 6px 10px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
+            backdrop-filter: blur(10px);
+          }
+          .back-float-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
           }
           .stats-iframe {
             flex: 1;
             width: 100%;
             border: none;
             background: #000;
+            height: 100vh;
           }
         `}</style>
       </div>
     );
   }
 
-  // Página 1: Grid de botones
+  // Página 1: Grid de botones - full screen
   const currentButtons = pages[currentPage]?.buttons || [];
   const totalButtons = 10; // 2 filas x 5 columnas
 
   return (
-    <div className="streamdeck-container">
-      {/* Header con información de página */}
-      <div className="streamdeck-header">
+    <div className="streamdeck-container-full">
+      {/* Header minimal */}
+      <div className="streamdeck-header-minimal">
         <button
           className="nav-button"
-          onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
-          disabled={currentPage === 0}
-        >
-          ◀
-        </button>
-        <div className="page-info">
-          <span className="page-name">{pages[currentPage]?.name || `Página ${currentPage + 1}`}</span>
-          <span className="page-indicator">{currentPage + 1} / {pages.length || 1}</span>
-        </div>
-        <button
-          className="nav-button"
-          onClick={() => setCurrentPage(Math.min(pages.length - 1, currentPage + 1))}
-          disabled={currentPage >= pages.length - 1}
+          onClick={() => setCurrentPage(1)}
         >
           ▶
         </button>
@@ -184,7 +148,7 @@ export default function StreamDeck() {
       </div>
 
       {/* Grid de botones */}
-      <div className="button-grid">
+      <div className="button-grid-full">
         {Array.from({ length: totalButtons }).map((_, index) => {
           const button = currentButtons.find(b => b.position === index);
           const isExecuting = executing === button?.id;
@@ -211,39 +175,6 @@ export default function StreamDeck() {
             </button>
           );
         })}
-      </div>
-
-      {/* Footer con navegación rápida de páginas */}
-      <div className="streamdeck-footer">
-        {pages.map((page, index) => (
-          <button
-            key={page.id}
-            className={`page-dot ${currentPage === index ? 'active' : ''}`}
-            onClick={() => setCurrentPage(index)}
-          >
-            {index + 1}
-          </button>
-        ))}
-        <button
-          className="add-page-button"
-          onClick={async () => {
-            const newPage = {
-              id: Date.now(),
-              name: `Página ${pages.length + 1}`,
-              buttons: []
-            };
-            const updatedPages = [...pages, newPage];
-            setPages(updatedPages);
-            await fetch('/api/config', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ pages: updatedPages })
-            });
-            setCurrentPage(updatedPages.length - 1);
-          }}
-        >
-          +
-        </button>
       </div>
     </div>
   );

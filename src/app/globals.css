@@ -21,7 +21,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  background: #000;
   color: var(--text-primary);
   height: 100vh;
   overflow: hidden;
@@ -158,6 +158,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: #c8c8c8;
 }
 
 .empty-slot {
@@ -486,6 +487,67 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* Full screen grid - page 1 */
+.streamdeck-container-full {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #000;
+}
+
+.button-grid-full {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  flex: 1;
+  padding: 10px;
+}
+
+.button-grid-full .deck-button {
+  background: linear-gradient(145deg, #1a1a2e 0%, #0a0a14 100%);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+.button-grid-full .button-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.button-grid-full .button-placeholder {
+  font-size: 52px;
+}
+
+.button-grid-full .button-label {
+  font-size: 15px;
+  color: #c8c8c8;
+}
+
+.streamdeck-header-minimal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #000;
+}
+
+.streamdeck-header-minimal .nav-button,
+.streamdeck-header-minimal .settings-button {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.streamdeck-header-minimal .nav-button:hover,
+.streamdeck-header-minimal .settings-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
 @media (max-width: 600px) {
   .button-grid {
     grid-template-columns: repeat(3, 1fr);
