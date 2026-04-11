@@ -7,82 +7,122 @@
         {
           "id": "btn-1",
           "label": "Chrome",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Chrome_icon_%28September_2014%29.svg",
+          "image": "/icons/chrome.png",
           "action": "open -a \"Google Chrome\"",
           "page": 0,
           "position": 0
         },
         {
           "id": "btn-2",
-          "label": "Firefox",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg",
-          "action": "open -a Firefox",
+          "label": "Warp",
+          "image": "/icons/warp.png",
+          "action": "open -a Warp",
           "page": 0,
           "position": 1
         },
         {
           "id": "btn-3",
-          "label": "Warp",
-          "image": "https://www.warp.dev/favicon.png",
-          "action": "open -a Warp",
+          "label": "VS Code",
+          "image": "/icons/vscode.png",
+          "action": "open -a \"Visual Studio Code\"",
           "page": 0,
           "position": 2
         },
         {
           "id": "btn-4",
-          "label": "Claude",
-          "image": "https://cdn.simpleicons.org/claude",
-          "action": "open -a Claude",
+          "label": "FileZilla",
+          "image": "/icons/filezilla.png",
+          "action": "open -a FileZilla",
           "page": 0,
           "position": 3
         },
         {
           "id": "btn-5",
-          "label": "Perplexity",
-          "image": "https://cdn.simpleicons.org/perplexity",
-          "action": "open -a Perplexity",
+          "label": "Ajustes Mac",
+          "image": "/icons/settings.png",
+          "action": "open -a \"System Settings\"",
           "page": 0,
           "position": 4
         },
         {
           "id": "btn-6",
-          "label": "VS Code",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg",
-          "action": "open -a \"Visual Studio Code\"",
+          "label": "Fan On",
+          "image": "/icons/fanon.png",
+          "action": "/opt/homebrew/bin/fanon",
           "page": 0,
           "position": 5
         },
         {
           "id": "btn-7",
-          "label": "FileZilla",
-          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/FileZilla_logo.svg/1200px-FileZilla_logo.svg.png",
-          "action": "open -a FileZilla",
+          "label": "Screenshot",
+          "image": "/icons/screenshot.png",
+          "action": "open -a ScreenshotHelper",
           "page": 0,
           "position": 6
         },
         {
-          "id": "btn-8",
-          "label": "Ajustes Mac",
-          "image": "https://img.freepik.com/vector-premium/icono-ajuste-neon-vectorial-fondo-negro-icono-ajuste-brillante-color-purpura_742443-136.jpg?w=360",
-          "action": "open -a \"System Settings\"",
+          "id": "btn-darkmode",
+          "label": "Dark Mode",
+          "image": "/icons/nightmode.png",
+          "action": "/usr/bin/osascript -e 'tell application \"System Events\" to tell appearance preferences to set dark mode to not dark mode'",
           "page": 0,
           "position": 7
         },
         {
-          "id": "btn-9",
-          "label": "Microsoft Teams",
-          "image": "https://thumbs.dreamstime.com/b/microsoft-teams-logo-icon-microsoft-teams-logo-icon-remote-working-application-symbol-vector-217256135.jpg",
-          "action": "open -a \"Microsoft Teams\"",
+          "id": "btn-fanoff",
+          "label": "Fan Off",
+          "image": "/icons/fanoff.png",
+          "action": "/opt/homebrew/bin/fanoff",
           "page": 0,
           "position": 8
         },
         {
-          "id": "btn-10",
-          "label": "Dormir Mac",
-          "image": "https://media.istockphoto.com/id/1435657213/vector/white-desktop-computer-template-similar-to-imac-mockup.jpg?s=612x612&w=0&k=20&c=9w44_qwaYx5v4EK_Fzar3uI6StnYEj3g2bpMjBeAk7s=",
-          "action": "osascript -e 'tell application \"System Events\" to sleep'",
+          "id": "btn-screenrec",
+          "label": "Screen Record",
+          "image": "/icons/screenrec.png",
+          "action": "/usr/sbin/screencapture -v /tmp/recording_$(date +%s).mov",
           "page": 0,
           "position": 9
+        },
+        {
+          "id": "btn-cputemp",
+          "label": "CPU Temp",
+          "action": "/opt/homebrew/bin/cputemp",
+          "page": 0,
+          "position": 10,
+          "image": "/icons/cputemp.png"
+        },
+        {
+          "id": "btn-nightmode",
+          "label": "Night Mode",
+          "action": "/bin/bash -c \"export PATH=/opt/homebrew/bin:/usr/bin:$PATH; osascript -e 'tell application \\\"System Events\\\" to tell appearance preferences to set dark mode to not dark mode'\"",
+          "page": 0,
+          "position": 11,
+          "image": "/icons/nightmode.png"
+        },
+        {
+          "id": "btn-tailscale",
+          "label": "Docker",
+          "action": "open -a Docker",
+          "page": 0,
+          "position": 12,
+          "image": "/icons/docker.png"
+        },
+        {
+          "id": "btn-speedtest",
+          "label": "Speed Test",
+          "action": "/opt/homebrew/bin/run-speedtest",
+          "page": 0,
+          "position": 13,
+          "image": "/icons/speedtest.png"
+        },
+        {
+          "id": "btn-mute",
+          "label": "Volume Mute",
+          "action": "/opt/homebrew/bin/volumetoggle",
+          "page": 0,
+          "position": 14,
+          "image": "/icons/volume.png"
         }
       ]
     },
@@ -92,7 +132,7 @@
       "buttons": [
         {
           "id": "btn-stats",
-          "label": "📊 Local Stats",
+          "label": "\ud83d\udcca Local Stats",
           "image": "https://cdn-icons-png.flaticon.com/512/2785/2785.png",
           "action": "open http://192.168.68.212:3000",
           "page": 1,
@@ -100,7 +140,7 @@
         },
         {
           "id": "btn-immich",
-          "label": "📷 Immich",
+          "label": "\ud83d\udcf7 Immich",
           "image": "https://cdn-icons-png.flaticon.com/512/1041/1041897.png",
           "action": "open http://192.168.68.62:2283",
           "page": 1,
@@ -108,7 +148,7 @@
         },
         {
           "id": "btn-pihole",
-          "label": "🛡️ PiHole",
+          "label": "\ud83d\udee1\ufe0f PiHole",
           "image": "https://cdn-icons-png.flaticon.com/512/2621/2621.png",
           "action": "open http://192.168.1.210/admin",
           "page": 1,
@@ -116,7 +156,7 @@
         },
         {
           "id": "btn-terminal",
-          "label": "💻 Terminal",
+          "label": "\ud83d\udcbb Terminal",
           "image": "https://cdn-icons-png.flaticon.com/512/7162/7162249.png",
           "action": "open -a Terminal",
           "page": 1,
@@ -124,7 +164,7 @@
         },
         {
           "id": "btn-finder",
-          "label": "📁 Finder",
+          "label": "\ud83d\udcc1 Finder",
           "image": "https://cdn-icons-png.flaticon.com/512/2621/2621.png",
           "action": "open -a Finder",
           "page": 1,

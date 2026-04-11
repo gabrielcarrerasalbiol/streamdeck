@@ -24,6 +24,7 @@ export default function StreamDeck() {
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [executing, setExecuting] = useState<string | null>(null);
+  const [toggleStates, setToggleStates] = useState<{darkMode: boolean; volumeMuted: boolean; fanOn: boolean}>({darkMode: false, volumeMuted: false, fanOn: false});
 
   // Cargar configuración
   useEffect(() => {
@@ -37,6 +38,19 @@ export default function StreamDeck() {
         console.error('Error loading config:', err);
         setLoading(false);
       });
+  }, []);
+
+  // Poll toggle states
+  useEffect(() => {
+    const fetchStates = () => {
+      fetch('/api/states')
+        .then(res => res.json())
+        .then(data => setToggleStates(data))
+        .catch(() => {});
+    };
+    fetchStates();
+    const interval = setInterval(fetchStates, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   // Ejecutar acción del botón
@@ -62,6 +76,15 @@ export default function StreamDeck() {
     } finally {
       setTimeout(() => setExecuting(null), 300);
     }
+  };
+
+  // Get dynamic label based on toggle state
+  const getDynamicLabel = (btn: Button): string => {
+    if (btn.action?.includes('volumetoggle')) return toggleStates.volumeMuted ? 'Volume Off' : 'Volume On';
+    if (btn.action?.includes('darkmode') || btn.action?.includes('Dark')) return toggleStates.darkMode ? 'Dark Mode' : 'Light Mode';
+    if (btn.action?.includes('fanon')) return 'Fan On';
+    if (btn.action?.includes('fanoff')) return 'Fan Off';
+    return btn.label;
   };
 
   if (loading) {
@@ -127,7 +150,7 @@ export default function StreamDeck() {
 
   // Página 1: Grid de botones - full screen
   const currentButtons = pages[currentPage]?.buttons || [];
-  const totalButtons = 10; // 2 filas x 5 columnas
+  const totalButtons = 15; // 3 filas x 5 columnas
 
   return (
     <div className="streamdeck-container-full">
@@ -167,7 +190,7 @@ export default function StreamDeck() {
                   ) : (
                     <div className="button-placeholder">🔘</div>
                   )}
-                  <span className="button-label">{button.label}</span>
+                  <span className="button-label">{getDynamicLabel(button)}</span>
                 </>
               ) : (
                 <span className="empty-slot">+</span>
