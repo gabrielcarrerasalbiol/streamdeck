@@ -93,12 +93,12 @@
           "image": "/icons/cputemp.png"
         },
         {
-          "id": "btn-nightmode",
-          "label": "Night Mode",
-          "action": "/bin/bash -c \"export PATH=/opt/homebrew/bin:/usr/bin:$PATH; osascript -e 'tell application \\\"System Events\\\" to tell appearance preferences to set dark mode to not dark mode'\"",
+          "id": "btn-finder",
+          "label": "Finder",
+          "action": "open -a Finder",
           "page": 0,
           "position": 11,
-          "image": "/icons/nightmode.png"
+          "image": "/icons/finder.png"
         },
         {
           "id": "btn-tailscale",
